@@ -1,5 +1,6 @@
 const inquirer = require('inquirer');
 const fs = require('fs');
+const Manager = require('./lib/Manager.js');
 
 console.log('Welcome to your team profile generator!!')
 
@@ -32,11 +33,11 @@ inquirer
             choices: ['Engineer', 'Intern', 'I do not want to add anymore team members'],
         },
     ])
-    // uses answers, passes them into generateMarkdwn function and and returns the results
     .then((answers) => {
-        const memberAnswers = []
-        memberAnswers.push(answers)
-        console.log(memberAnswers)
+        const managerInfo = new Manager(answers.managerName, answers.managerId, answers.managerEmail, answers.officeNumber)
+        // const memberAnswers = []
+        // memberAnswers.push(answers)
+        console.log(managerInfo)
 
         if (answers.teamMember === 'Engineer') {
             inquirer
