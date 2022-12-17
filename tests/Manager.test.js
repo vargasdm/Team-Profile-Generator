@@ -1,34 +1,27 @@
 const Manager = require('../lib/Manager.js');
 
 describe('Get', () => {
-    it('Get the name of the manager entered by the user', () => {
-        const manager = new Manager('Daniel', 1, 'example@gmail.com', 3);
-        const result = getName(new Manager('Daniel', 1, 'example@gmail.com', 3));
-      expect(result).toEqual(manager.name);
-    });
+    it('can get name via getName', ()=>{
+        const managerName = 'beverly'
+        const testManager = new Manager('beverly', 74, 'bev@gmail.com', 224)
+        expect(testManager.getName()).toBe(managerName)
+     })
 
-    it('Get the id of the manager entered by the user', () => {
-        const manager = new Manager('Daniel', 1, 'example@gmail.com', 3);
-        const result = getid(new Manager('Daniel', 1, 'example@gmail.com', 3));
-      expect(result).toEqual(manager.id);
-    });
+    it('can get name via getId', ()=>{
+        const managerId = 74
+        const testManager = new Manager('beverly', 74, 'bev@gmail.com', 224)
+        expect(testManager.getId()).toBe(managerId)
+     })
 
-    it('Get the email of the manager entered by the user', () => {
-        const manager = new Manager('Daniel', 1, 'example@gmail.com', 3);
-        const result = getemail(new Manager('Daniel', 1, 'example@gmail.com', 3));
-      expect(result).toEqual(manager.email);
-    });
+    it('can get name via getEmail', ()=>{
+        const managerEmail = 'bev@gmail.com'
+        const testManager = new Manager('beverly', 74, 'bev@gmail.com', 224)
+        expect(testManager.getEmail()).toBe(managerEmail)
+     }) 
 
-    // it('Get the office number of the manager entered by the user', () => {
-    //     const manager = new Manager('Daniel', 1, 'example@gmail.com', 3);
-    //     const result = new Manager('Sam', 1, 'example2@gmail.com', 3);
-    //   expect(result.officeNumber).toEqual(manager.officeNumber);
-    // });
-
-    it('Get the role of the manager entered by the user', () => {
-        const manager = new Manager('Daniel', 1, 'example@gmail.com', 3)
-        manager.role = "Manager";
-        const result = getRole();
-      expect(result).toEqual(manager.role);
-    });
+    it('can get role via getRole', ()=>{
+        const managerRole = 'Manager'
+        const testManager = new Manager('beverly', 74, 'bev@gmail.com', 224)
+        expect(testManager.getRole()).toBe(managerRole)
+     })
 })

@@ -1,34 +1,33 @@
 const Engineer = require('../lib/Engineer.js');
 
 describe('Get', () => {
-    it('Get the name of the engineer entered by the user', () => {
-        const engineer = new Engineer('Daniel', 1, 'example@gmail.com', 'vargasdm');
-        const result = getName(new Engineer('Daniel', 1, 'example@gmail.com', 'vargasdm'));
-      expect(result).toEqual(engineer.name);
-    });
+    it('can get name via getName', ()=>{
+        const engineerName = 'manolo'
+        const testEngineer = new Engineer('manolo', 44, 'mon@gmail.com', 'oloman')
+        expect(testEngineer.getName()).toBe(engineerName)
+     })
 
-    it('Get the id of the engineer entered by the user', () => {
-        const engineer = new Engineer('Daniel', 1, 'example@gmail.com', 'vargasdm');
-        const result = getid(new Engineer('Daniel', 1, 'example@gmail.com', 'vargasdm'));
-      expect(result).toEqual(engineer.id);
-    });
+    it('can get name via getId', ()=>{
+        const engineerId = 44
+        const testEngineer = new Engineer('manolo', 44, 'mon@gmail.com', 'oloman')
+        expect(testEngineer.getId()).toBe(engineerId)
+     })
 
-    it('Get the email of the engineer entered by the user', () => {
-        const engineer = new Engineer('Daniel', 1, 'example@gmail.com', 'vargasdm');
-        const result = getemail(new Engineer('Daniel', 1, 'example@gmail.com', 'vargasdm'));
-      expect(result).toEqual(engineer.email);
-    });
+     it('can get name via getEmail', ()=>{
+        const engineerEmail = 'mon@gmail.com'
+        const testEngineer = new Engineer('manolo', 44, 'mon@gmail.com', 'oloman')
+        expect(testEngineer.getEmail()).toBe(engineerEmail)
+     }) 
 
-    it('Get the github of the engineer entered by the user', () => {
-        const engineer = new Engineer('Daniel', 1, 'example@gmail.com', 'vargasdm');
-        const result = getGithub(new Engineer('Daniel', 1, 'example@gmail.com', 'vargasdm'));
-      expect(result.github).toEqual(engineer.github);
-    });
+    it('can get name via getGithub', ()=>{
+        const engineerGithub = 'oloman'
+        const testEngineer = new Engineer('manolo', 44, 'mon@gmail.com', 'oloman')
+        expect(testEngineer.getGithub()).toBe(engineerGithub)
+     }) 
 
-    it('Get the role of the engineer entered by the user', () => {
-        const engineer = new Engineer('Daniel', 1, 'example@gmail.com', 'vargasdm')
-        engineer.role = "Engineer";
-        const result = getRole();
-      expect(result).toEqual(engineer.role);
-    });
+    it('can get role via getRole', ()=>{
+        const engineerRole = 'Engineer'
+        const testEngineer = new Engineer('manolo', 44, 'mon@gmail.com', 'oloman')
+        expect(testEngineer.getRole()).toBe(engineerRole)
+     })
 })

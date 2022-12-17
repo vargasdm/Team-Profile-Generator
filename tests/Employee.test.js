@@ -1,28 +1,27 @@
 const Employee = require('../lib/Employee.js');
 
 describe('Get', () => {
-    it('Get the name of the employee entered by the user', () => {
-        const employee = new Employee('Daniel', 1, 'example@gmail.com')
-        const result = Employee.getName(new Employee('Daniel', 1, 'example@gmail.com'))
-      expect(result).toEqual(employee.name);
-    });
+    it('can get name via getName', ()=>{
+        const employeeName = 'fred'
+        const testEmployee = new Employee('fred', 12, 'fred@gmail.com')
+        expect(testEmployee.getName()).toBe(employeeName)
+     })
 
-    it('Get the id of the employee entered by the user', () => {
-        const employee = new Employee('Daniel', 1, 'example@gmail.com')
-        const result = Employee.getId(new Employee('Daniel', 1, 'example@gmail.com'))
-      expect(result).toEqual(employee.id);
-    });
+    it('can get name via getId', ()=>{
+        const employeeId = 12
+        const testEmployee = new Employee('fred', 12, 'fred@gmail.com')
+        expect(testEmployee.getId()).toBe(employeeId)
+     })
 
-    it('Get the email of the employee entered by the user', () => {
-        const employee = new Employee('Daniel', 1, 'example@gmail.com')
-        const result = Employee.getEmail(new Employee('Daniel', 1, 'example@gmail.com'))
-      expect(result).toEqual(employee.email);
-    });
+    it('can get email via getEmail', ()=>{
+        const employeeEmail = 'fred@gmail.com'
+        const testEmployee = new Employee('fred', 12, 'fred@gmail.com')
+        expect(testEmployee.getEmail()).toBe(employeeEmail)
+     })
 
-    it('Get the role of the employee entered by the user', () => {
-        const employee = new Employee('Daniel', 1, 'example@gmail.com')
-        employee.role = "Employee";
-        const result = Employee.getRole();
-      expect(result).toEqual(employee.role);
-    });
+    it('can get role via getRole', ()=>{
+        const employeeRole = 'Employee'
+        const testEmployee = new Employee('fred', 12, 'fred@gmail.com')
+        expect(testEmployee.getRole()).toBe(employeeRole)
+     })
 })

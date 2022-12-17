@@ -1,34 +1,33 @@
 const Intern = require('../lib/Intern.js');
 
 describe('Get', () => {
-    it('Get the name of the intern entered by the user', () => {
-        const intern = new Intern('Daniel', 1, 'example@gmail.com', 'UNC');
-        const result = getName(new Intern('Daniel', 1, 'example@gmail.com', 'UNC'));
-      expect(result).toEqual(intern.name);
-    });
+    it('can get name via getName', ()=>{
+        const internName = 'pepe'
+        const testIntern = new Intern('pepe', 100, 'pepehands@gmail.com', 'UP')
+        expect(testIntern.getName()).toBe(internName)
+     })
 
-    it('Get the id of the intern entered by the user', () => {
-        const intern = new Intern('Daniel', 1, 'example@gmail.com', 'UNC');
-        const result = getid(new Intern('Daniel', 1, 'example@gmail.com', 'UNC'));
-      expect(result).toEqual(intern.id);
-    });
+    it('can get name via getId', ()=>{
+        const internId = 100
+        const testIntern = new Intern('pepe', 100, 'pepehands@gmail.com', 'UP')
+        expect(testIntern.getId()).toBe(internId)
+     })
 
-    it('Get the email of the intern entered by the user', () => {
-        const intern = new Intern('Daniel', 1, 'example@gmail.com', 'UNC');
-        const result = getemail(new Intern('Daniel', 1, 'example@gmail.com', 'UNC'));
-      expect(result).toEqual(intern.email);
-    });
+     it('can get name via getEmail', ()=>{
+        const internEmail = 'pepehands@gmail.com'
+        const testIntern = new Intern('pepe', 100, 'pepehands@gmail.com', 'UP')
+        expect(testIntern.getEmail()).toBe(internEmail)
+     }) 
 
-    it('Get the school of the intern entered by the user', () => {
-        const intern = new Intern('Daniel', 1, 'example@gmail.com', 'UNC');
-        const result = getSchool(new Intern('Daniel', 1, 'example@gmail.com', 'UNC'));
-      expect(result.school).toEqual(intern.school);
-    });
+    it('can get name via getSchool', ()=>{
+        const internGithub = 'UP'
+        const testIntern = new Intern('pepe', 100, 'pepehands@gmail.com', 'UP')
+        expect(testIntern.getSchool()).toBe(internGithub)
+     }) 
 
-    it('Get the role of the intern entered by the user', () => {
-        const intern = new Intern('Daniel', 1, 'example@gmail.com', 'UNC')
-        intern.role = "Intern";
-        const result = getRole();
-      expect(result).toEqual(intern.role);
-    });
+    it('can get role via getRole', ()=>{
+        const internRole = 'Intern'
+        const testIntern = new Intern('pepe', 100, 'pepehands@gmail.com', 'UP')
+        expect(testIntern.getRole()).toBe(internRole)
+     })
 })
