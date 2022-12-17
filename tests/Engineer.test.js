@@ -15,13 +15,13 @@ describe('Get', () => {
 
     it('Get the email of the engineer entered by the user', () => {
         const engineer = new Engineer('Daniel', 1, 'example@gmail.com', 'vargasdm');
-        const result = getid(new Engineer('Daniel', 1, 'example@gmail.com', 'vargasdm'));
+        const result = getemail(new Engineer('Daniel', 1, 'example@gmail.com', 'vargasdm'));
       expect(result).toEqual(engineer.email);
     });
 
     it('Get the github of the engineer entered by the user', () => {
         const engineer = new Engineer('Daniel', 1, 'example@gmail.com', 'vargasdm');
-        const result = new Engineer('Sam', 1, 'example2@gmail.com', 'vargasdm');
+        const result = getGithub(new Engineer('Daniel', 1, 'example@gmail.com', 'vargasdm'));
       expect(result.github).toEqual(engineer.github);
     });
 

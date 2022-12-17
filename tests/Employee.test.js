@@ -1,4 +1,4 @@
-const Employee = require('lib\Employee.js');
+const Employee = require('../lib/Employee.js');
 
 describe('Get', () => {
     it('Get the name of the employee entered by the user', () => {
@@ -15,7 +15,7 @@ describe('Get', () => {
 
     it('Get the email of the employee entered by the user', () => {
         const employee = new Employee('Daniel', 1, 'example@gmail.com')
-        const result = getid(new Employee('Daniel', 1, 'example@gmail.com'))
+        const result = getEmail(new Employee('Daniel', 1, 'example@gmail.com'))
       expect(result).toEqual(employee.email);
     });
 
