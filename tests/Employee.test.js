@@ -1,4 +1,4 @@
-const Employee = require('../lib/Employee');
+const Employee = require('lib\Employee.js');
 
 describe('Get', () => {
     it('Get the name of the employee entered by the user', () => {
@@ -21,8 +21,8 @@ describe('Get', () => {
 
     it('Get the role of the employee entered by the user', () => {
         const employee = new Employee('Daniel', 1, 'example@gmail.com')
-        employee.role = "employee";
-        const result = getid();
+        employee.role = "Employee";
+        const result = getRole();
       expect(result).toEqual(employee.role);
     });
 })
