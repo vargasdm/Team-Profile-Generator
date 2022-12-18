@@ -28,13 +28,11 @@ function memberPrompt() {
             }
         ])
         .then((answers) => {
-            console.log(answers);
             if (answers.teamMember === 'Engineer') {
                 engineerPrompts();
             } else if (answers.teamMember === 'Intern') {
                 internPrompts();
             } else {
-                console.log(employeeArr);
                 writeHtml();
                 return
             }
@@ -67,10 +65,8 @@ function engineerPrompts() {
             },
         ])
         .then((answers) => {
-            console.log(answers);
             let engineerInfo = new Engineer(answers.engineerName, answers.engineerId, answers.engineerEmail, answers.github)
             employeeArr.push(engineerInfo)
-            console.log(employeeArr)
             memberPrompt();
         });
 }
@@ -101,10 +97,8 @@ function internPrompts() {
             },
         ])
         .then((answers) => {
-            console.log(answers);
             let internInfo = new Intern(answers.internName, answers.internId, answers.internEmail, answers.school)
             employeeArr.push(internInfo)
-            console.log(employeeArr)
             memberPrompt();
         });
 }
@@ -139,6 +133,5 @@ inquirer
     .then((answers) => {
         let managerInfo = new Manager(answers.managerName, answers.managerId, answers.managerEmail, answers.officeNumber)
         employeeArr.push(managerInfo)
-        console.log(employeeArr)
         memberPrompt();
     })
