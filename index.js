@@ -1,11 +1,18 @@
 const inquirer = require('inquirer');
 const fs = require('fs');
+const Employee = require('./lib/Employee.js');
 const Manager = require('./lib/Manager.js');
-let managerArr = [];
-let engineerArr = [];
-let internArr = [];
+const Engineer = require('./lib/Engineer.js');
+const Intern = require('./lib/Intern.js');
+let employeeObj;
 
 
+function writeHtml() {
+    fs.writeFile('./dist/team.html', employeeObj, (err) =>
+        err ? console.log(err) : console.log('We have successfully created profiles for your team members')
+    )
+
+}
 function memberPrompt() {
     inquirer
         .prompt([
@@ -22,9 +29,11 @@ function memberPrompt() {
                 engineerPrompts();
             } else if (answers.teamMember === 'Intern') {
                 internPrompts();
-            } fs.writeFile('./dist/team.html', memberAnswers, (err) =>
-                err ? console.log(err) : console.log('We have successfully created profiles for your team members')
-            ) 
+            } else {
+                console.log(employeeObj);
+                writeHtml();
+                return
+            }
         })
 }
 
@@ -54,9 +63,9 @@ function engineerPrompts() {
         ])
         .then((answers) => {
             console.log(answers);
-            let engineerInfo = new Intern(answers.engineerName, answers.engineerId, answers.engineerEmail, answers.github)
-            engineerArr.push(engineerInfo)
-            console.log(engineerArr)
+            let engineerInfo = new Engineer(answers.engineerName, answers.engineerId, answers.engineerEmail, answers.github)
+            Object.assign(employeeObj, engineerInfo)
+            console.log(employeeObj)
             memberPrompt();
         });
 }
@@ -88,8 +97,8 @@ function internPrompts() {
         .then((answers) => {
             console.log(answers);
             let internInfo = new Intern(answers.internName, answers.internId, answers.internEmail, answers.school)
-            internArr.push(internInfo)
-            console.log(internArr)
+            Object.assign(employeeObj, internInfo)
+            console.log(employeeObj)
             memberPrompt();
         });
 }
@@ -122,12 +131,9 @@ inquirer
     ])
     .then((answers) => {
         let managerInfo = new Manager(answers.managerName, answers.managerId, answers.managerEmail, answers.officeNumber)
-        managerArr.push(managerInfo)
-        console.log(managerArr)
+        Object.assign(employeeObj, managerInfo)
+        console.log(employeeObj)
         memberPrompt();
 
-        // } else {
-
-        // }
 
     })
