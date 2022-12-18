@@ -1,4 +1,4 @@
-function generateCard() {
+function generateCard(employeeArr) {
     for (let i = 0; i < employeeArr.length; i++) {
         let employeeCardEl = document.createElement('div');
         let employeeNameEl = document.createElement('h2');
@@ -29,13 +29,14 @@ function generateCard() {
             let employeeschoolEl = document.createElement('p');
             employeeschoolEl.textContent = employeeArr[i].school;
             employeeCardEl.appendChild(employeeschoolEl);
+        } else {
+            return
         }
-
-
+    generateHtml(); 
     }
 }
 
-function generateHtml() {
+function generateHtml(employeeArr) {
     `<!DOCTYPE html>
     <html lang="en">
     <head>
@@ -56,3 +57,5 @@ function generateHtml() {
     </body>
     </html>`
 }
+
+module.exports = {generateCard, generateHtml};
