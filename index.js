@@ -63,7 +63,7 @@ function engineerPrompts() {
             {
                 type: 'input',
                 name: 'github',
-                message: "What is the team engineer's office number?",
+                message: "What is team engineer's GitHub username?",
             },
         ])
         .then((answers) => {
