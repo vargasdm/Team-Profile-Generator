@@ -14,7 +14,6 @@ function writeHtml() {
     fs.writeFile('./dist/team.html', html, (err) =>
         err ? console.log(err) : console.log('We have successfully created profiles for your team members')
     )
-
 }
 
 // holds prompt that asks if you want to add another member
