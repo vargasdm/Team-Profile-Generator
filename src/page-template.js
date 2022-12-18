@@ -1,4 +1,5 @@
 function generateCard(employeeArr) {
+    // generateHtml(); 
     for (let i = 0; i < employeeArr.length; i++) {
         let employeeCardEl = document.createElement('div');
         let employeeNameEl = document.createElement('h2');
@@ -32,7 +33,6 @@ function generateCard(employeeArr) {
         } else {
             return
         }
-    generateHtml(); 
     }
 }
 
@@ -52,7 +52,7 @@ function generateHtml(employeeArr) {
 
         <div>
         `
-    generateCard()`
+    generateCard(employeeArr)`
         </div>
     </body>
     </html>`

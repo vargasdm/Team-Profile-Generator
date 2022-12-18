@@ -1,6 +1,7 @@
 const inquirer = require('inquirer');
 const fs = require('fs');
-const generateCard = require('./src/page-template.js');
+const pageTemplate = require('./src/page-template.js');
+const {generateHtml} = pageTemplate
 // const Employee = require('./lib/Employee.js');
 const Manager = require('./lib/Manager.js');
 const Engineer = require('./lib/Engineer.js');
@@ -9,7 +10,7 @@ let employeeArr = [];
 
 // creates html
 function writeHtml() {
-    const html = generateCard(employeeArr);
+    const html = generateHtml(employeeArr);
     fs.writeFile('./dist/team.html', html, (err) =>
         err ? console.log(err) : console.log('We have successfully created profiles for your team members')
     )
