@@ -1,18 +1,20 @@
 const inquirer = require('inquirer');
 const fs = require('fs');
-const Employee = require('./lib/Employee.js');
+// const Employee = require('./lib/Employee.js');
 const Manager = require('./lib/Manager.js');
 const Engineer = require('./lib/Engineer.js');
 const Intern = require('./lib/Intern.js');
-let employeeObj = {};
+let employeeArr = [];
 
-
+// creates html
 function writeHtml() {
-    fs.writeFile('./dist/team.html', employeeObj, (err) =>
+    fs.writeFile('./dist/team.html', employeeArr, (err) =>
         err ? console.log(err) : console.log('We have successfully created profiles for your team members')
     )
 
 }
+
+// holds prompt that asks if you want to add another member
 function memberPrompt() {
     inquirer
         .prompt([
@@ -30,13 +32,14 @@ function memberPrompt() {
             } else if (answers.teamMember === 'Intern') {
                 internPrompts();
             } else {
-                console.log(employeeObj);
+                console.log(employeeArr);
                 writeHtml();
                 return
             }
         })
 }
 
+// holds prompts for engineer employee
 function engineerPrompts() {
     inquirer
         .prompt([
@@ -64,12 +67,13 @@ function engineerPrompts() {
         .then((answers) => {
             console.log(answers);
             let engineerInfo = new Engineer(answers.engineerName, answers.engineerId, answers.engineerEmail, answers.github)
-            Object.assign(employeeObj, engineerInfo)
-            console.log(employeeObj)
+            employeeArr.push(engineerInfo)
+            console.log(employeeArr)
             memberPrompt();
         });
 }
 
+// holds prompts for intern employee
 function internPrompts() {
     inquirer
         .prompt([
@@ -97,14 +101,15 @@ function internPrompts() {
         .then((answers) => {
             console.log(answers);
             let internInfo = new Intern(answers.internName, answers.internId, answers.internEmail, answers.school)
-            Object.assign(employeeObj, internInfo)
-            console.log(employeeObj)
+            employeeArr.push(internInfo)
+            console.log(employeeArr)
             memberPrompt();
         });
 }
 
+// app starts here
 console.log('Welcome to your team profile generator!!')
-
+// prompts for manager
 inquirer
     .prompt([
         {
@@ -131,9 +136,7 @@ inquirer
     ])
     .then((answers) => {
         let managerInfo = new Manager(answers.managerName, answers.managerId, answers.managerEmail, answers.officeNumber)
-        Object.assign(employeeObj, managerInfo)
-        console.log(employeeObj)
+        employeeArr.push(managerInfo)
+        console.log(employeeArr)
         memberPrompt();
-
-
     })
