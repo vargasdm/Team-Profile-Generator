@@ -1,6 +1,10 @@
 const inquirer = require('inquirer');
 const fs = require('fs');
 const Manager = require('./lib/Manager.js');
+let managerArr = [];
+let engineerArr = [];
+let internArr = [];
+
 
 function memberPrompt() {
     inquirer
@@ -18,7 +22,9 @@ function memberPrompt() {
                 engineerPrompts();
             } else if (answers.teamMember === 'Intern') {
                 internPrompts();
-            } return;
+            } fs.writeFile('./dist/team.html', memberAnswers, (err) =>
+                err ? console.log(err) : console.log('We have successfully created profiles for your team members')
+            ) 
         })
 }
 
@@ -48,6 +54,9 @@ function engineerPrompts() {
         ])
         .then((answers) => {
             console.log(answers);
+            let engineerInfo = new Intern(answers.engineerName, answers.engineerId, answers.engineerEmail, answers.github)
+            engineerArr.push(engineerInfo)
+            console.log(engineerArr)
             memberPrompt();
         });
 }
@@ -78,6 +87,9 @@ function internPrompts() {
         ])
         .then((answers) => {
             console.log(answers);
+            let internInfo = new Intern(answers.internName, answers.internId, answers.internEmail, answers.school)
+            internArr.push(internInfo)
+            console.log(internArr)
             memberPrompt();
         });
 }
@@ -110,15 +122,12 @@ inquirer
     ])
     .then((answers) => {
         let managerInfo = new Manager(answers.managerName, answers.managerId, answers.managerEmail, answers.officeNumber)
-        // const memberAnswers = []
-        // memberAnswers.push(answers)  
-        console.log(managerInfo)
+        managerArr.push(managerInfo)
+        console.log(managerArr)
         memberPrompt();
 
         // } else {
-        //     fs.writeFile('./dist/team.html', memberAnswers, (err) =>
-        //         err ? console.log(err) : console.log('We have successfully created profiles for your team members')
-        //     )
+
         // }
 
     })
