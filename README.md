@@ -1,4 +1,4 @@
-# Weather-Dashboard
+# Team Profile Generator
 
 ## Description
 
@@ -21,7 +21,7 @@ During this project I learned:
 - [Credits](#credits)
 - [License](#license)
 
-##Installation
+## Installation
 
 First, you will need to clone this repository to your local machine. The repository should already contain the package.json file as well as the package-lock.json file. This application requires you to have node.js version 16.18 and you can read how to install the correct version at https://coding-boot-camp.github.io/full-stack/nodejs/how-to-install-nodejs. THis application also requires the thrid-party package inquirer version 8.2.4 and the fs module that is built into node.js. fs does not need to be installed but inquirer does. It can be installed by opening the index.js terminal and entering npm i inquirer@8.2.4. You will be able to check the package.jason file and find the inquirer dependency. After teh required packages are installed, the user can open the terminal in the index.js file, and enter node index.js. They will be presented with a series of prompts where they will enter information about their project that will be used to generate their README file.
 
@@ -29,7 +29,7 @@ First, you will need to clone this repository to your local machine. The reposit
 
 This application can be used to generate an html that contains professional team information. The user will be prompted about the name, id, email, office number of the manager. Then the user will be asked if they want to add another employee and if they choose either an intern or engineer, they will be prompted for information about that employee. If the user does not want to add another employee, the app will create an html with all of the prompted information.
 
-The demo video can be viewed here: https://github.com/vargasdm/Weather-Dashboard.
+The demo video can be viewed here: https://drive.google.com/file/d/1o_TfimaheCjgS3zZrf05BJo7DflnTO6t/view.
 
 ## Credits
 
