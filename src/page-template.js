@@ -1,3 +1,4 @@
+// fills in the rest of the html template
 function generateCard(employeeArr) {    
     let employeesHtml = ''
     for (let i = 0; i < employeeArr.length; i++) {
@@ -12,7 +13,7 @@ function generateCard(employeeArr) {
 
       const htmlGeneratedEmail = `<div><a href="mailto:${employeeArr[i].getEmail()}">Email: ${employeeArr[i].email}</a></div>`
       employeesHtml += htmlGeneratedEmail
-
+        // if statement that checks if certain properties are present
       if (employeeArr[i].officeNumber !== undefined) {
         const htmlGeneratedOfficeNum = `<div class = "bottom"><p>Office #: ${employeeArr[i].officeNumber}</p> </div>`
         employeesHtml += htmlGeneratedOfficeNum
@@ -29,6 +30,7 @@ function generateCard(employeeArr) {
     return employeesHtml 
 }
 
+// generates html base template
 function generateHtml(employeeArr) {
     return `<!DOCTYPE html>
     <html lang="en">
